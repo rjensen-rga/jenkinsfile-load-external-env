@@ -6,6 +6,7 @@
 def config = [:]
 
 node {
+  checkout scm
   def configModule = load('env-dev.groovy')
   config = configModule.getEnvironment()
   println config
