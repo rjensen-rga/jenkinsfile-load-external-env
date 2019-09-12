@@ -10,9 +10,9 @@ pipeline {
   stages {
     stage ('init') {
       steps {
-        checkout scm
+//        checkout scm
         load('env-dev.groovy')
-        sh("echo Dealing with ${env.codeUrl} in ${env.deployEnv}")
+        sh("echo Dealing with ${env.repoUrl} in ${env.env}")
       }
     }
   }
