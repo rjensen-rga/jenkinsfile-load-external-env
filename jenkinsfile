@@ -1,6 +1,10 @@
-String jsonData = readFileFromWorkspace('env-dev.json')
-groovy.json.JsonSlurperClassic slurper = new groovy.json.JsonSlurperClassic()
-def config = slurper.parseText(jsonData)
+//String jsonData = readFileFromWorkspace('env-dev.json')
+//groovy.json.JsonSlurperClassic slurper = new groovy.json.JsonSlurperClassic()
+//def config = slurper.parseText(jsonData)
+//println config
+
+def configModule = load('env-dev.groovy')
+def config = configModule.getEnvironment()
 println config
 
 pipeline {
