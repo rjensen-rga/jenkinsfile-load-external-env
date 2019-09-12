@@ -6,8 +6,8 @@ println config
 pipeline {
   agent any
   environment {
-    DEPLOY_ENV = config.env
-    CODE_URL = config.repoUrl
+    DEPLOY_ENV = "${config.env}"
+    CODE_URL = "${config.repoUrl}"
   }
 
   stages {
