@@ -1,18 +1,13 @@
-//String jsonData = readFileFromWorkspace('env-dev.json')
-//groovy.json.JsonSlurperClassic slurper = new groovy.json.JsonSlurperClassic()
-//def config = slurper.parseText(jsonData)
-//println config
-
-
 pipeline {
   agent any
 
   stages {
     stage ('init') {
       steps {
-//        checkout scm
         load('env-dev.groovy')
         sh("echo Dealing with ${env.repoUrl} in ${env.env}")
+        sh("echo ${env.SOMECREDSID_USR} | base64")
+        sh("echo ${env.SOMECREDSID_PSW} | base64")
       }
     }
   }
