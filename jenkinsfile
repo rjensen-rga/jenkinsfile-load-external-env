@@ -3,11 +3,14 @@ pipeline {
 
   stages {
     stage ('init') {
+      environment {
+        SOMECREDS = credentials("${env.SOMECREDSID}")
+      }
       steps {
         load('env-dev.groovy')
         sh("echo Dealing with ${env.repoUrl} in ${env.env}")
-        sh("echo ${env.SOMECREDSID_USR} | base64")
-        sh("echo ${env.SOMECREDSID_PSW} | base64")
+        sh("echo ${env.SOMECREDS_USR} | base64")
+        sh("echo ${env.SOMECREDS_PSW} | base64")
       }
     }
   }
