@@ -1,0 +1,20 @@
+String jsonData = readFileFromWorkspace('env-dev.json')
+groovy.json.JsonSlurperClassic slurper = new groovy.json.JsonSlurperClassic()
+def config = slurper.parseText(jsonData)
+println config
+
+pipeline {
+  agent any
+  environment {
+    DEPLOY_ENV = config.env
+    CODE_URL = config.repoUrl
+  }
+
+  stages {
+    stage ('init') {
+      steps {
+        sh("echo Dealing with ${CODE_URL} in ${DEPLOY_ENV}")
+      }
+    }
+  }
+}
