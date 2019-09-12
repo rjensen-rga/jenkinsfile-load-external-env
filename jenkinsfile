@@ -3,9 +3,13 @@
 //def config = slurper.parseText(jsonData)
 //println config
 
-def configModule = load('env-dev.groovy')
-def config = configModule.getEnvironment()
-println config
+def config = [:]
+
+node {
+  def configModule = load('env-dev.groovy')
+  config = configModule.getEnvironment()
+  println config
+}
 
 pipeline {
   agent any
