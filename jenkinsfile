@@ -1,9 +1,9 @@
 pipeline {
   agent any
 
-  environment {
-    OVERRIDE2 = 'this is coming from the pipelines main env section'
-  }
+#  environment {
+#    OVERRIDE2 = 'this is coming from the pipelines main env section'
+#  }
 
   stages {
     stage ('init') {
