@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  environment {
+    OVERRIDE2 = 'this is coming from the pipelines main env section'
+  }
+
   stages {
     stage ('init') {
       steps {
@@ -15,6 +19,7 @@ pipeline {
       steps {
         sh("echo ${env.SOMECREDS_USR} | base64")
         sh("echo ${env.SOMECREDS_PSW} | base64")
+        sh('printenv')
       }
     }
   }
