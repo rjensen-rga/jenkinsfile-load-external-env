@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { label 'aws' }
 
 //  environment {
 //    OVERRIDE2 = 'this is coming from the pipelines main env section'
